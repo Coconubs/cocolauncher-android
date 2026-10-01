@@ -13,6 +13,21 @@ public class Architecture {
 	public static final int ARCH_X86_64 = 0x8;
 
 	/* On both 32-bit ARM and x86, the top 1GB is reserved for kernel use. */
+	/** ABI Android actually installed the app's native libraries for. Differs from the
+	 * CPU on x86 emulators (MuMu, LDPlayer...) that run ARM apps through a native bridge:
+	 * the JRE and natives must then match the bridged ABI, not the host CPU. */
+	private static int sProcessArch = UNSUPPORTED_ARCH;
+
+	/**
+	 * Pin the architecture to the ABI of the app's native library directory
+	 * (e.g. ".../lib/arm64"). Call once at startup, before anything queries the architecture.
+	 */
+	public static void initFromNativeLibraryDir(String nativeLibraryDir){
+		if(nativeLibraryDir == null) return;
+		String abiDir = nativeLibraryDir.substring(nativeLibraryDir.lastIndexOf('/') + 1);
+		sProcessArch = archAsInt(abiDir);
+	}
+
 	public static final long ADDRESS_SPACE_LIMIT_32_BIT = 0xbfffffffL;
 	/*
 	 * Technically, this is supposed to be 48 bits on x86_64, but nobody's allocating
@@ -52,6 +67,7 @@ public class Architecture {
 	 * @return ARCH_ARM || ARCH_ARM64 || ARCH_X86 || ARCH_86_64
 	 */
 	public static int getDeviceArchitecture(){
+		if(sProcessArch != UNSUPPORTED_ARCH) return sProcessArch;
 		if(isx86Device()){
 			return is64BitsDevice() ? ARCH_X86_64 : ARCH_X86;
 		}
@@ -64,6 +80,7 @@ public class Architecture {
 	 * @return Whether or not the device is x86 based.
 	 */
 	public static boolean isx86Device(){
+		if(sProcessArch != UNSUPPORTED_ARCH) return sProcessArch == ARCH_X86 || sProcessArch == ARCH_X86_64;
 		//We check the whole range of supported ABIs,
 		//Since asus zenfones can place arm before their native instruction set.
 		String[] ABI = is64BitsDevice() ? Build.SUPPORTED_64_BIT_ABIS : Build.SUPPORTED_32_BIT_ABIS;

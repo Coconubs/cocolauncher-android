@@ -86,6 +86,7 @@ public class PojavApplication extends Application {
 				// and not explode.
 				Tools.initEarlyConstants(this);
 			}
+			Architecture.initFromNativeLibraryDir(getApplicationInfo().nativeLibraryDir);
 			Tools.DEVICE_ARCHITECTURE = Architecture.getDeviceArchitecture();
 			//Force x86 lib directory for Asus x86 based zenfones
 			if(Architecture.isx86Device() && Architecture.is32BitsDevice()) {

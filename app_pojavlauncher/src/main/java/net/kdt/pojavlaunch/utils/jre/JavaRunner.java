@@ -261,6 +261,24 @@ public class JavaRunner {
         args.add("-Xrs");
     }
 
+    private static void addx86AvxWorkaround(List<String> args) {
+        if(!Architecture.isx86Device()) return;
+        // Some x86 emulators (MuMu, ...) advertise AVX through CPUID but the guest kernel never
+        // enables it (no "osxsave" flag), so the first AVX instruction HotSpot emits dies with SIGILL.
+        String flags = null;
+        try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader("/proc/cpuinfo"))) {
+            String line;
+            while((line = reader.readLine()) != null) {
+                if(line.startsWith("flags")) { flags = " " + line.substring(line.indexOf(':') + 1) + " "; break; }
+            }
+        } catch (java.io.IOException e) {
+            return;
+        }
+        if(flags == null || !flags.contains(" avx ") || flags.contains(" osxsave ")) return;
+        Log.i("JavaRunner", "AVX advertised without OS support, adding -XX:UseAVX=0");
+        args.add("-XX:UseAVX=0");
+    }
+
     /**
      * Start the Java(tm) Virtual Machine.
      * @param runtime the Runtime that we're starting.
@@ -286,6 +304,7 @@ public class JavaRunner {
 
         runtimeArgs.add("-XX:ActiveProcessorCount=" + java.lang.Runtime.getRuntime().availableProcessors());
         addx86SignalWorkaround(runtimeArgs);
+        addx86AvxWorkaround(runtimeArgs);
         StringBuilder classpathBuilder = new StringBuilder().append("-Djava.class.path=");
         boolean first = true;
         for(String entry : classpathEntries) {
