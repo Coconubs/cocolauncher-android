@@ -96,8 +96,9 @@ android {
         applicationId "com.coconubs.cocolauncher"
         minSdkVersion 21
         targetSdkVersion 36
-        versionCode getDateSeconds()
-        versionName "1.0.0"
+        // Bumped by CocoLauncher/tools/publish-android-app.js; the in-app updater compares versionCode.
+        versionCode Integer.parseInt(project.findProperty('cocoVersionCode') ?: '100')
+        versionName project.findProperty('cocoVersionName') ?: '1.0.0'
         multiDexEnabled false //important
         resValue 'string', 'curseforge_api_key', getCFApiKey()
         resValue 'string', 'group_id', 'git.artdeell'

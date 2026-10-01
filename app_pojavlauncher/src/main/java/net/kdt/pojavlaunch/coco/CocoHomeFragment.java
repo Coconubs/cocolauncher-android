@@ -128,6 +128,7 @@ public class CocoHomeFragment extends Fragment {
         super.onResume();
         refreshMeta();
         refreshServerStatus();
+        CocoAppUpdater.checkOnStart(requireActivity());
     }
 
     void openControlsEditor() {
@@ -176,6 +177,7 @@ public class CocoHomeFragment extends Fragment {
 
     private void onPlay() {
         if (mWorking) return;
+        if (CocoAppUpdater.hasPendingUpdate()) { CocoAppUpdater.showIfPending(requireActivity()); return; }
         String name = mName.getText().toString().trim();
         if (!CocoSetup.isValidUsername(name)) {
             mName.setError(getString(R.string.coco_name_invalid));
