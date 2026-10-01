@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="coco_void">#07080F</color>
+    <color name="coco_ink">#F3F4FA</color>
+    <color name="coco_muted">#9AA0BD</color>
+    <color name="coco_sub">#B6BBD4</color>
+    <color name="coco_dim">#8A90AD</color>
+    <color name="coco_gold">#F2C14E</color>
+    <color name="coco_orange">#FFB347</color>
+    <color name="coco_green">#3DDC84</color>
+    <color name="coco_red">#FF6B75</color>
+    <color name="coco_play_text">#1A0D05</color>
+</resources>

@@ -193,7 +193,7 @@ public class LauncherActivity extends BaseActivity {
         ProgressKeeper.addTaskCountListener((mProgressServiceKeeper = new ProgressServiceKeeper(this)));
 
         mSettingsButton.setOnClickListener(mSettingButtonListener);
-        ProgressKeeper.addTaskCountListener(mProgressLayout);
+        // Coco: CocoHomeFragment shows progress itself; Mojo's bottom task bar stays hidden.
         ExtraCore.addExtraListener(ExtraConstants.BACK_PREFERENCE, mBackPreferenceListener);
         ExtraCore.addExtraListener(ExtraConstants.SELECT_AUTH_METHOD, mSelectAuthMethod);
 
@@ -233,7 +233,6 @@ public class LauncherActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         mProgressLayout.cleanUpObservers();
-        ProgressKeeper.removeTaskCountListener(mProgressLayout);
         ProgressKeeper.removeTaskCountListener(mProgressServiceKeeper);
         ExtraCore.removeExtraListenerFromValue(ExtraConstants.BACK_PREFERENCE, mBackPreferenceListener);
         ExtraCore.removeExtraListenerFromValue(ExtraConstants.SELECT_AUTH_METHOD, mSelectAuthMethod);

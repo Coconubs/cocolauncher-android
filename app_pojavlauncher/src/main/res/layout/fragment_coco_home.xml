@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coco home (mockup "1 · Sẵn sàng" / "2 · Đang tải gói"): the PC launcher 2.0.0 look, landscape. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/coco_bg_glow">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:adjustViewBounds="false"
+        android:scaleType="fitEnd"
+        android:src="@drawable/coco_ridge"
+        android:importantForAccessibility="no"
+        android:layout_marginTop="160dp" />
+
+    <ImageView
+        android:id="@+id/coco_art"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end|bottom"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="16dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitEnd"
+        android:src="@drawable/coco_charizard"
+        android:importantForAccessibility="no" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/coco_shade" />
+
+    <!-- Left rail -->
+    <LinearLayout
+        android:layout_width="72dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/coco_rail"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingVertical="12dp">
+
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:contentDescription="CocoLauncher"
+            android:src="@drawable/coco_logo" />
+
+        <View
+            android:layout_width="28dp"
+            android:layout_height="1dp"
+            android:layout_marginVertical="10dp"
+            android:background="#17FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/coco_discord"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/coco_icon_button"
+            android:contentDescription="Discord"
+            android:src="@drawable/ic_coco_discord" />
+
+        <ImageButton
+            android:id="@+id/coco_controls"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/coco_icon_button"
+            android:contentDescription="@string/coco_controls"
+            android:src="@drawable/ic_coco_controls" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/coco_settings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/coco_icon_button"
+            android:contentDescription="@string/coco_settings"
+            android:src="@drawable/ic_coco_settings" />
+    </LinearLayout>
+
+    <!-- Server status chip -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="14dp"
+        android:background="@drawable/coco_chip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="7dp">
+
+        <ImageView
+            android:id="@+id/coco_status_dot"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/coco_dot"
+            android:importantForAccessibility="no"
+            android:tint="@color/coco_muted" />
+
+        <TextView
+            android:id="@+id/coco_status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/bevietnam_regular"
+            android:text="@string/coco_status_checking"
+            android:textColor="@color/coco_ink"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- Main block -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="108dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="28dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bevietnam_extrabold"
+            android:letterSpacing="0.2"
+            android:text="@string/coco_eyebrow"
+            android:textColor="@color/coco_gold"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/coco_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/bevietnam_extrabold"
+            android:lineSpacingMultiplier="0.95"
+            android:text="@string/coco_title"
+            android:textColor="@color/coco_ink"
+            android:textSize="38sp" />
+
+        <TextView
+            android:id="@+id/coco_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/bevietnam_regular"
+            android:maxWidth="520dp"
+            android:text="@string/coco_subtitle"
+            android:textColor="@color/coco_sub"
+            android:textSize="14sp" />
+
+        <!-- Ready: name + play -->
+        <LinearLayout
+            android:id="@+id/coco_ready"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@+id/coco_name"
+                    android:fontFamily="@font/bevietnam_semibold"
+                    android:text="@string/coco_name_label"
+                    android:textColor="@color/coco_muted"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="250dp"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/coco_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+
+                    <ImageView
+                        android:id="@+id/coco_head"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/coco_skin"
+                        android:importantForAccessibility="no" />
+
+                    <EditText
+                        android:id="@+id/coco_name"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:fontFamily="@font/bevietnam_semibold"
+                        android:hint="@string/coco_name_hint"
+                        android:imeOptions="actionGo|flagNoExtractUi"
+                        android:importantForAutofill="no"
+                        android:inputType="text|textNoSuggestions"
+                        android:maxLength="16"
+                        android:singleLine="true"
+                        android:textColor="@color/coco_ink"
+                        android:textColorHint="#6F7594"
+                        android:textSize="17sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/coco_play"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/coco_play_button"
+                android:fontFamily="@font/bevietnam_extrabold"
+                android:letterSpacing="0.06"
+                android:minWidth="150dp"
+                android:paddingHorizontal="40dp"
+                android:stateListAnimator="@null"
+                android:text="@string/coco_play"
+                android:textColor="@color/coco_play_text"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <!-- Busy: progress card -->
+        <LinearLayout
+            android:id="@+id/coco_busy"
+            android:layout_width="520dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/coco_card"
+            android:orientation="vertical"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="14dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/coco_busy_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/bevietnam_semibold"
+                    android:singleLine="true"
+                    android:textColor="@color/coco_ink"
+                    android:textSize="14sp"
+                    tools:text="Tải gói Coco Lite · 61/124 file" />
+
+                <TextView
+                    android:id="@+id/coco_busy_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/bevietnam_extrabold"
+                    android:textColor="@color/coco_orange"
+                    android:textSize="18sp"
+                    tools:text="52%" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/coco_busy_bar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="8dp"
+                android:max="1000"
+                android:progressDrawable="@drawable/coco_progress" />
+
+            <TextView
+                android:id="@+id/coco_busy_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/bevietnam_regular"
+                android:textColor="@color/coco_dim"
+                android:textSize="12sp"
+                tools:text="212 / 405 MB · 4,8 MB/s" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/coco_meta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/bevietnam_regular"
+            android:textColor="@color/coco_dim"
+            android:textSize="12sp"
+            tools:text="Launcher 1.0.0 · RAM 3072 MB" />
+    </LinearLayout>
+</FrameLayout>

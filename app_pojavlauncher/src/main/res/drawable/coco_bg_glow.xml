@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Two soft blobs (orange + violet) behind the art, like the PC launcher aurora. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/coco_void" />
+    <item><shape android:shape="rectangle">
+        <gradient android:type="radial" android:centerX="0.72" android:centerY="0.05" android:gradientRadius="55%p" android:startColor="#73FF6A3D" android:endColor="#00FF6A3D" />
+    </shape></item>
+    <item><shape android:shape="rectangle">
+        <gradient android:type="radial" android:centerX="0.86" android:centerY="0.75" android:gradientRadius="50%p" android:startColor="#737A3CFF" android:endColor="#007A3CFF" />
+    </shape></item>
+</layer-list>

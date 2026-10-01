@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coco screens are Vietnamese only (the server's players). -->
+<resources>
+    <string name="coco_eyebrow" translatable="false">COCO COBBLEMON · 1.21.1</string>
+    <string name="coco_title" translatable="false">Bắt trọn thế giới\nPokémon</string>
+    <string name="coco_subtitle" translatable="false">Bản Lite dành cho điện thoại — nhẹ hơn bản PC.</string>
+    <string name="coco_name_label" translatable="false">Tên trong game</string>
+    <string name="coco_name_hint" translatable="false">Nhập tên (3–16 ký tự)</string>
+    <string name="coco_name_invalid" translatable="false">Tên chỉ gồm chữ không dấu, số và dấu _ (3–16 ký tự).</string>
+    <string name="coco_play" translatable="false">CHƠI</string>
+    <string name="coco_controls" translatable="false">Chỉnh bố cục nút cảm ứng</string>
+    <string name="coco_settings" translatable="false">Cài đặt</string>
+    <string name="coco_close" translatable="false">Đóng</string>
+    <string name="coco_status_checking" translatable="false">Đang kiểm tra máy chủ…</string>
+    <string name="coco_status_online" translatable="false">Máy chủ online · %1$d người</string>
+    <string name="coco_status_offline" translatable="false">Máy chủ đang tắt</string>
+
+    <string name="coco_prepare_title" translatable="false">Đang chuẩn bị trò chơi</string>
+    <string name="coco_prepare_sub" translatable="false">Lần đầu cần tải khoảng 400 MB — nên dùng Wi-Fi. Các lần sau chỉ tải phần thay đổi.</string>
+    <string name="coco_step_check" translatable="false">Kiểm tra gói Coco Lite…</string>
+    <string name="coco_step_pack" translatable="false">Tải gói Coco Lite · %1$d/%2$d file</string>
+    <string name="coco_step_fabric" translatable="false">Cài Fabric…</string>
+    <string name="coco_step_game" translatable="false">Tải Minecraft %1$s</string>
+    <string name="coco_bytes" translatable="false">%1$s / %2$s · %3$s/s</string>
+    <string name="coco_sync_failed" translatable="false">Không tải được gói: %1$s\nKiểm tra mạng rồi bấm CHƠI lại.</string>
+    <string name="coco_meta" translatable="false">Launcher %1$s · RAM %2$d MB</string>
+
+    <string name="coco_ram" translatable="false">Bộ nhớ cho game</string>
+    <string name="coco_ram_note" translatable="false">Máy có %1$s RAM · khuyên dùng %2$d MB</string>
+    <string name="coco_resolution" translatable="false">Độ phân giải</string>
+    <string name="coco_resolution_note" translatable="false">Giảm để tăng FPS và đỡ nóng máy</string>
+    <string name="coco_renderer" translatable="false">Bộ dựng hình</string>
+    <string name="coco_renderer_auto" translatable="false">Tự động</string>
+    <string name="coco_renderer_note" translatable="false">Bị đen màn hình hay crash thì thử đổi sang loại khác</string>
+    <string name="coco_send_log" translatable="false">Gửi log lỗi cho admin</string>
+    <string name="coco_verify" translatable="false">Kiểm tra lại toàn bộ file</string>
+    <string name="coco_verify_done" translatable="false">Lần CHƠI tới sẽ kiểm tra lại toàn bộ file.</string>
+    <string name="coco_about" translatable="false">CocoLauncher Android %1$s · LGPL-3.0</string>
+</resources>

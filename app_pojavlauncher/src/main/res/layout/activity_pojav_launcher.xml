@@ -8,6 +8,7 @@
 
     <com.kdt.mcgui.AccountSpinner
         android:id="@+id/account_spinner"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_52sdp"
 
@@ -21,6 +22,7 @@
 
     <ImageButton
         android:id="@+id/setting_button"
+        android:visibility="gone"
         android:layout_width="@dimen/_52sdp"
         android:layout_height="@dimen/_52sdp"
         android:background="?attr/selectableItemBackground"
@@ -34,11 +36,11 @@
     <!-- Holding most of the dynamic content -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container_fragment"
-        android:name="net.kdt.pojavlaunch.fragments.MainMenuFragment"
+        android:name="net.kdt.pojavlaunch.coco.CocoHomeFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/progress_layout"
-        app:layout_constraintTop_toBottomOf="@+id/account_spinner" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <com.kdt.mcgui.ProgressLayout

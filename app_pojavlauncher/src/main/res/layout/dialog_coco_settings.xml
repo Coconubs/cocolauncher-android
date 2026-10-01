@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coco settings (mockup "3 · Cài đặt"). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/coco_panel"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/bevietnam_extrabold"
+            android:text="@string/coco_settings"
+            android:textColor="@color/coco_ink"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/coco_settings_close"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/coco_row_button"
+            android:contentDescription="@string/coco_close"
+            android:src="@drawable/ic_coco_close" />
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#14FFFFFF" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <!-- Left column -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="22dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:fontFamily="@font/bevietnam_semibold" android:text="@string/coco_ram" android:textColor="@color/coco_ink" android:textSize="14sp" />
+                    <TextView android:id="@+id/coco_ram_value" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:fontFamily="@font/bevietnam_semibold" android:textColor="@color/coco_orange" android:textSize="14sp" />
+                </LinearLayout>
+                <SeekBar
+                    android:id="@+id/coco_ram_seek"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:paddingHorizontal="11dp"
+                    android:progressDrawable="@drawable/coco_progress"
+                    android:thumb="@drawable/coco_seek_thumb"
+                    android:splitTrack="false"
+                    android:maxHeight="8dp"
+                    android:minHeight="8dp" />
+                <TextView android:id="@+id/coco_ram_note" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:fontFamily="@font/bevietnam_regular" android:textColor="@color/coco_dim" android:textSize="12sp" />
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:orientation="horizontal">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:fontFamily="@font/bevietnam_semibold" android:text="@string/coco_resolution" android:textColor="@color/coco_ink" android:textSize="14sp" />
+                    <TextView android:id="@+id/coco_res_value" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:fontFamily="@font/bevietnam_semibold" android:textColor="@color/coco_orange" android:textSize="14sp" />
+                </LinearLayout>
+                <SeekBar
+                    android:id="@+id/coco_res_seek"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:paddingHorizontal="11dp"
+                    android:progressDrawable="@drawable/coco_progress"
+                    android:thumb="@drawable/coco_seek_thumb"
+                    android:splitTrack="false"
+                    android:maxHeight="8dp"
+                    android:minHeight="8dp" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:fontFamily="@font/bevietnam_regular" android:text="@string/coco_resolution_note" android:textColor="@color/coco_dim" android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Right column -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:fontFamily="@font/bevietnam_semibold" android:text="@string/coco_renderer" android:textColor="@color/coco_ink" android:textSize="14sp" />
+                <RadioGroup
+                    android:id="@+id/coco_renderer_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+                    <RadioButton android:id="@+id/coco_renderer_auto" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                        android:background="@drawable/coco_option" android:button="@null" android:gravity="center" android:fontFamily="@font/bevietnam_semibold"
+                        android:text="@string/coco_renderer_auto" android:textColor="@color/coco_option_text" android:textSize="13sp" />
+                    <RadioButton android:id="@+id/coco_renderer_ltw" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                        android:layout_marginStart="6dp" android:background="@drawable/coco_option" android:button="@null" android:gravity="center" android:fontFamily="@font/bevietnam_semibold"
+                        android:text="LTW" android:textColor="@color/coco_option_text" android:textSize="13sp" />
+                    <RadioButton android:id="@+id/coco_renderer_zink" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+                        android:layout_marginStart="6dp" android:background="@drawable/coco_option" android:button="@null" android:gravity="center" android:fontFamily="@font/bevietnam_semibold"
+                        android:text="Zink" android:textColor="@color/coco_option_text" android:textSize="13sp" />
+                </RadioGroup>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp"
+                    android:fontFamily="@font/bevietnam_regular" android:text="@string/coco_renderer_note" android:textColor="@color/coco_dim" android:textSize="12sp" />
+
+                <Button android:id="@+id/coco_edit_controls" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="16dp"
+                    android:background="@drawable/coco_row_button" android:fontFamily="@font/bevietnam_semibold" android:gravity="start|center_vertical"
+                    android:paddingHorizontal="14dp" android:stateListAnimator="@null" android:text="@string/coco_controls" android:textAllCaps="false"
+                    android:textColor="@color/coco_ink" android:textSize="14sp" />
+                <Button android:id="@+id/coco_send_log" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="8dp"
+                    android:background="@drawable/coco_row_button" android:fontFamily="@font/bevietnam_semibold" android:gravity="start|center_vertical"
+                    android:paddingHorizontal="14dp" android:stateListAnimator="@null" android:text="@string/coco_send_log" android:textAllCaps="false"
+                    android:textColor="@color/coco_ink" android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#14FFFFFF" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="8dp">
+
+        <TextView
+            android:id="@+id/coco_about"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/bevietnam_regular"
+            android:textColor="@color/coco_dim"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/coco_verify"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:background="@null"
+            android:fontFamily="@font/bevietnam_semibold"
+            android:stateListAnimator="@null"
+            android:text="@string/coco_verify"
+            android:textAllCaps="false"
+            android:textColor="@color/coco_gold"
+            android:textSize="12sp" />
+    </LinearLayout>
+</LinearLayout>
