@@ -126,6 +126,10 @@
                     android:background="@drawable/coco_row_button" android:fontFamily="@font/bevietnam_semibold" android:gravity="start|center_vertical"
                     android:paddingHorizontal="14dp" android:stateListAnimator="@null" android:text="@string/coco_controls" android:textAllCaps="false"
                     android:textColor="@color/coco_ink" android:textSize="14sp" />
+                <Button android:id="@+id/coco_open_sidemods" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="8dp"
+                    android:background="@drawable/coco_row_button" android:fontFamily="@font/bevietnam_semibold" android:gravity="start|center_vertical"
+                    android:paddingHorizontal="14dp" android:stateListAnimator="@null" android:text="@string/coco_open_sidemods" android:textAllCaps="false"
+                    android:textColor="@color/coco_ink" android:textSize="14sp" />
                 <Button android:id="@+id/coco_send_log" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="8dp"
                     android:background="@drawable/coco_row_button" android:fontFamily="@font/bevietnam_semibold" android:gravity="start|center_vertical"
                     android:paddingHorizontal="14dp" android:stateListAnimator="@null" android:text="@string/coco_send_log" android:textAllCaps="false"

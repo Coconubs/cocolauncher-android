@@ -68,9 +68,19 @@ public final class CocoSetup {
         coco.versionId = CocoConfig.VERSION_ID;
         coco.renderer = rendererId(LauncherPreferences.DEFAULT_PREF.getString(PREF_RENDERER_MODE, RENDERER_AUTO));
         coco.controlLayout = null; // use the default layout, which installControls() points at ours
+        // SideMods: the player's own extra mods, never synced or deleted (same as the PC launcher).
+        File sideMods = sideModsDir(coco);
+        //noinspection ResultOfMethodCallIgnored
+        sideMods.mkdirs();
+        coco.jvmArgs = "-Dfabric.addMods=" + sideMods.getAbsolutePath();
+        coco.argsMode = Instance.ARGS_MODE_MERGE_DEFAULT_FIRST;
         coco.write();
         Instances.setSelectedInstance(coco);
         return coco;
+    }
+
+    public static File sideModsDir(Instance instance) {
+        return new File(instance.getGameDirectory(), "sidemods");
     }
 
     private static String rendererId(String mode) {

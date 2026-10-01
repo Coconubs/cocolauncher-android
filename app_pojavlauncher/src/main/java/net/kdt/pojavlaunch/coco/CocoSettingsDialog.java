@@ -69,6 +69,7 @@ public class CocoSettingsDialog {
         root.findViewById(R.id.coco_settings_close).setOnClickListener(v -> dialog.dismiss());
         root.findViewById(R.id.coco_edit_controls).setOnClickListener(v -> { dialog.dismiss(); mHome.openControlsEditor(); });
         root.findViewById(R.id.coco_send_log).setOnClickListener(v -> Tools.shareLog(ctx));
+        root.findViewById(R.id.coco_open_sidemods).setOnClickListener(v -> openSideMods(ctx));
         root.findViewById(R.id.coco_verify).setOnClickListener(v -> forgetHashes(ctx));
         ((TextView) root.findViewById(R.id.coco_about)).setText(ctx.getString(R.string.coco_about, CocoHomeFragment.appVersion(ctx)));
 
@@ -120,6 +121,18 @@ public class CocoSettingsDialog {
                     : id == R.id.coco_renderer_zink ? CocoSetup.RENDERER_ZINK : CocoSetup.RENDERER_AUTO;
             LauncherPreferences.DEFAULT_PREF.edit().putString(CocoSetup.PREF_RENDERER_MODE, m).apply();
         });
+    }
+
+    /** Opens instance/sidemods in the system file manager (through Mojo's documents provider). */
+    private static void openSideMods(Context ctx) {
+        try {
+            File dir = CocoSetup.sideModsDir(CocoSetup.prepareInstance());
+            //noinspection ResultOfMethodCallIgnored
+            dir.mkdirs();
+            Tools.openPath(ctx, dir, false);
+        } catch (Exception e) {
+            Tools.showError(ctx, e);
+        }
     }
 
     /** Drops the sha1 cache so the next PLAY re-hashes (and repairs) every pack file. */

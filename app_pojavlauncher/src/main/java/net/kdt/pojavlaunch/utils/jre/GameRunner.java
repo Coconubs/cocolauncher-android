@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import net.kdt.pojavlaunch.Architecture;
 import net.kdt.pojavlaunch.JVersionList;
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.coco.CocoConfig;
 import net.kdt.pojavlaunch.authenticator.accounts.Account;
 import net.kdt.pojavlaunch.game.renderer.def.Renderers;
 import net.kdt.pojavlaunch.game.renderer.impl.GLESRenderSpec;
@@ -156,9 +157,9 @@ public class GameRunner {
         boolean showAddressMemoryWarning = freeDeviceMemory > freeAddressSpace && freeAddressSpace != -1;
         if(showAddressMemoryWarning) {
             freeDeviceMemory = freeAddressSpace;
-            localeString = R.string.address_memory_warning_msg;
+            localeString = R.string.coco_address_memory_warning_msg;
         } else {
-            localeString = R.string.memory_warning_msg;
+            localeString = R.string.coco_memory_warning_msg;
         }
 
         if(LauncherPreferences.PREF_RAM_ALLOCATION > freeDeviceMemory && (showAddressMemoryWarning || LauncherPreferences.PREF_SHOW_MEMORY_WARNING_DIALOG)) {
@@ -169,10 +170,8 @@ public class GameRunner {
                         });
 
                 if (!showAddressMemoryWarning) {
-                    builder.setNegativeButton(R.string.option_do_not_show_again, (d, w) -> {
-                        LauncherPreferences.DEFAULT_PREF.edit().putBoolean("showMemoryWarning", false).apply();
-                        Toast.makeText(activity, R.string.notification_permission_toast, Toast.LENGTH_SHORT).show();
-                    });
+                    builder.setNegativeButton(R.string.coco_do_not_show_again, (d, w) ->
+                        LauncherPreferences.DEFAULT_PREF.edit().putBoolean("showMemoryWarning", false).apply());
                 }
             };
 
@@ -236,6 +235,11 @@ public class GameRunner {
         // Pre-process specific files
         disableSplash(gamedir);
         List<String> launchArgs = getMoJsonClientArgs(account, versionInfo, gamedir);
+        if (CocoConfig.INSTANCE_NAME.equals(instance.name)) {
+            // Coco: straight into the server, no multiplayer menu on a touch screen.
+            launchArgs.add("--quickPlayMultiplayer");
+            launchArgs.add(CocoConfig.SERVER_HOST + ":" + CocoConfig.SERVER_PORT);
+        }
 
         // Select the appropriate openGL version
         OldVersionsUtils.selectOpenGlVersion(versionInfo);

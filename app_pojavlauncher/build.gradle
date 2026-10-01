@@ -59,6 +59,19 @@ android {
     }
 
     signingConfigs {
+        // Coco release key lives outside the repo (back it up: losing it means players
+        // must uninstall to update). COCO_SIGNING overrides the default location.
+        cocoRelease {
+            def propsFile = new File(System.getenv("COCO_SIGNING") ?: (System.getProperty("user.home") + "/.cocolauncher/android-release.properties"))
+            if (propsFile.isFile()) {
+                def props = new Properties()
+                propsFile.withInputStream { props.load(it) }
+                storeFile file(props['storeFile'])
+                storePassword props['storePassword']
+                keyAlias props['keyAlias']
+                keyPassword props['keyPassword']
+            }
+        }
         customDebug {
             storeFile file("debug.keystore")
             storePassword "android"
@@ -143,6 +156,22 @@ android {
             initWith release
             signingConfig signingConfigs.publicBuild
             matchingFallbacks += List.of("release")
+        }
+        cocoRelease {
+            initWith release
+            signingConfig signingConfigs.cocoRelease
+            matchingFallbacks += List.of("release")
+        }
+    }
+
+    // One APK per CPU: arm64 for phones, x86_64 for PC emulators (MuMu, LDPlayer…).
+    // A universal APK would let emulators pick the ARM libraries, which crash there.
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'arm64-v8a', 'x86_64'
+            universalApk false
         }
     }
 

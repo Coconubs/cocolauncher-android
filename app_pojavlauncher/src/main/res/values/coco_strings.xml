@@ -36,4 +36,8 @@
     <string name="coco_verify" translatable="false">Kiểm tra lại toàn bộ file</string>
     <string name="coco_verify_done" translatable="false">Lần CHƠI tới sẽ kiểm tra lại toàn bộ file.</string>
     <string name="coco_about" translatable="false">CocoLauncher Android %1$s · LGPL-3.0</string>
+    <string name="coco_memory_warning_msg" translatable="false">Máy đang chỉ còn trống %1$d MB RAM, ít hơn mức đã cấp cho game (%2$d MB) nên game có thể bị văng. Hãy tắt bớt ứng dụng khác, hoặc giảm "Bộ nhớ cho game" trong Cài đặt nếu bị văng.</string>
+    <string name="coco_address_memory_warning_msg" translatable="false">Máy chỉ dùng được tối đa %1$d MB cho game, ít hơn mức đã cấp (%2$d MB) — game sẽ bị văng. Hãy giảm "Bộ nhớ cho game" trong Cài đặt.</string>
+    <string name="coco_do_not_show_again" translatable="false">Không hiện lại</string>
+    <string name="coco_open_sidemods" translatable="false">Mở thư mục SideMods (mod riêng của bạn)</string>
 </resources>
